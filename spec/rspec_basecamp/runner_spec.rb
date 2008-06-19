@@ -2,7 +2,7 @@ require File.join(File.dirname(__FILE__), "..", "spec_helper")
 
 describe RSpecBC::Runner do  
   it "should create todo lists and todo items" do
-    config_path = File.join(File.dirname(__FILE__), "..", "fixtures", "rspec_basecamp.yml")
+    config_path = File.join(File.dirname(__FILE__), "..", "fixtures", "my_connection.yml")
     RSpecBC::Runner.start(config_path)
   end
   

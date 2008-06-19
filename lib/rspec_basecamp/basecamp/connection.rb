@@ -1,4 +1,5 @@
 module RSpecBC
+  # Borrowed
   class Connection
     def initialize(host, options = {})
       @host = host

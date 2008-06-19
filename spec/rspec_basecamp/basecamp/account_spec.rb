@@ -8,14 +8,14 @@ describe RSpecBC::Account do
   end
   
   it "should generate a url to login to using ssl" do
-    @account.url.should == "https://testlogin:testing@myproject.projectpath.com"
+    @account.url.should == "https://myproject.projectpath.com"
   end
   
   it "should generate a url to login without ssl" do
-    @account_without_ssl.url.should == "http://lancelot:isahomewrecker@unprotected.projectpath.com"
+    @account_without_ssl.url.should == "http://unprotected.projectpath.com"
   end
   
   it "should generate a request that is postable to the basecamp API" do
-    @account.post_request("test").should == "Accept: application/xml\nContent-Type: application/xml\n<request>test</request>"
+    @account.post_request("test").should == "<request>test</request>"
   end
 end

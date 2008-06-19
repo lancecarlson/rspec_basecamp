@@ -7,6 +7,7 @@ module RSpecBC
   # )
   class TodoList    
     attr_accessor :milestone_id, :private, :tracked, :name, :description, :project, :todo_items
+    attr_reader :id
     
     def initialize(project, attrs = {})
       @project = project
@@ -22,8 +23,12 @@ module RSpecBC
     
     def create
       response, body = account.post(create_url, self.to_xml)
-      puts response.inspect
-      puts body.inspect
+      update_from_response(body)
+    end
+    
+    def update_from_response(body)
+      parser = Hpricot(body)
+      @id = parser.at("id").inner_html.to_i
     end
     
     def to_xml
@@ -34,6 +39,10 @@ module RSpecBC
       xml = builder.name name if name
       xml = builder.description description if description
       xml
+    end
+    
+    def new?
+      id.is_nil?
     end
     
     private

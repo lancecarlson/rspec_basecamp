@@ -25,6 +25,7 @@ module RSpecBC
         :description => "Test Todo List"
       )
       todo_list.create
+      todo_item = RSpecBC::TodoItem.new(todo_list, "Need to do this!").create
     end
   end
 end
