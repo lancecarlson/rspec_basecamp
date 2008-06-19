@@ -1,6 +1,6 @@
 project1:
-  domain: rubyskills.projectpath.com
-  project_id: 2170939
-  login: lance
-  password: 411576
+  domain: crazy.projectpath.com
+  project_id: 123
+  login: test
+  password: testing
   ssl: true
